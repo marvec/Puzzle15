@@ -2,10 +2,7 @@ package org.drools.planner.examples.puzzle;
 
 import java.util.Arrays;
 
-import org.apache.log4j.Logger;
-
 public class Puzzle {
-	private static final Logger log = Logger.getLogger(Puzzle.class);
 	public enum Direction { UP, RIGHT, DOWN, LEFT };
 	private int[][] p = new int[4][4];
 	

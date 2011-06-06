@@ -6,11 +6,10 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.drools.planner.core.localsearch.LocalSearchSolverScope;
-import org.drools.planner.core.score.Score;
 import org.drools.planner.core.score.SimpleScore;
 import org.drools.planner.core.solution.Solution;
 
-public class PuzzleSolution implements Solution {
+public class PuzzleSolution implements Solution<SimpleScore> {
 
 	private SimpleScore score = null;
 	private Puzzle p = null;
@@ -25,11 +24,11 @@ public class PuzzleSolution implements Solution {
 	}
 	
 	@Override
-	public Solution cloneSolution() {
+	public Solution<SimpleScore> cloneSolution() {
 		if (log.isDebugEnabled()) {
 			log.debug("Cloning solution " + this);
 		}
-		final Solution s = new PuzzleSolution(p.clone());
+		final Solution<SimpleScore> s = new PuzzleSolution(p.clone());
 		s.setScore(getScore());
 		return s;
 	}
@@ -46,12 +45,12 @@ public class PuzzleSolution implements Solution {
 	}
 
 	@Override
-	public Score<SimpleScore> getScore() {
+	public SimpleScore getScore() {
 		return score;
 	}
 
 	@Override
-	public void setScore(@SuppressWarnings("rawtypes") final Score arg0) {
+	public void setScore(final SimpleScore arg0) {
 		score = (SimpleScore) arg0;
 	}
 
@@ -84,7 +83,6 @@ public class PuzzleSolution implements Solution {
 		return p != null;
 	}
 	
-	@SuppressWarnings("restriction")
 	protected void initialize(final Puzzle p, final LocalSearchSolverScope scope) {
 		if (this.p != null) {
 			throw new IllegalStateException("This solution has already been initialized to " + this.p);
@@ -92,6 +90,6 @@ public class PuzzleSolution implements Solution {
 		this.p = p;
 		scope.getWorkingMemory().insert(this.p);
 		scope.getWorkingMemory().insert(new PuzzleMove.MoveNotifier());
-		setScore(scope.calculateScoreFromWorkingMemory());
+		setScore((SimpleScore)scope.calculateScoreFromWorkingMemory());
 	}
 }

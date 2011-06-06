@@ -4,7 +4,6 @@ import org.drools.WorkingMemory;
 import org.drools.planner.core.move.Move;
 import org.drools.planner.examples.puzzle.Puzzle.Direction;
 
-@SuppressWarnings("restriction")
 public class PuzzleMove implements Move {
 
 	Puzzle p;

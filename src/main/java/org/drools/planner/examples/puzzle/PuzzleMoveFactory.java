@@ -14,7 +14,7 @@ public class PuzzleMoveFactory  extends AbstractMoveFactory {
 	private static Logger log = Logger.getLogger(PuzzleMoveFactory.class);
 	
 	@Override
-	public List<Move> createMoveList(Solution arg0) {
+	public List<Move> createMoveList(@SuppressWarnings("rawtypes") Solution arg0) {
 		final Puzzle p = ((PuzzleSolution) arg0).getPuzzle();
 		final List<Move> m = new ArrayList<Move>();
 		for (Direction d: Direction.values()) {
