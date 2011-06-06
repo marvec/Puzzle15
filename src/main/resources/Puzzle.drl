@@ -1,0 +1,17 @@
+#created on: 31.1.2011
+package org.drools.planner.examples.tsp;
+
+import org.drools.planner.core.score.calculator.SimpleScoreCalculator;
+import org.drools.planner.examples.puzzle.Puzzle;
+import org.drools.planner.examples.puzzle.PuzzleMove.MoveNotifier;
+
+global SimpleScoreCalculator scoreCalculator;
+
+rule "Update score"
+	when
+		$n: MoveNotifier()
+		$p: Puzzle()
+	then
+		retract ($n);
+		scoreCalculator.setScore($p.getScore());
+end

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localSearchSolver>
+    <environmentMode>PRODUCTION</environmentMode>
+    <scoreDrl>/Puzzle.drl</scoreDrl>
+    <scoreDefinition>
+        <scoreDefinitionType>SIMPLE</scoreDefinitionType>
+    </scoreDefinition>
+    <termination>
+        <terminationCompositionStyle>OR</terminationCompositionStyle>
+        <maximumMinutesSpend>5</maximumMinutesSpend>
+        <maximumUnimprovedStepCount>10000</maximumUnimprovedStepCount>
+        <scoreAttained>0</scoreAttained>
+    </termination>
+    <acceptor>
+      <completeSolutionTabuSize>10000</completeSolutionTabuSize>
+      <!--simulatedAnnealingStartingTemperature>3</simulatedAnnealingStartingTemperature-->
+      <!--completeMoveTabuSize>1</completeMoveTabuSize>
+      <completeUndoMoveTabuSize>1</completeUndoMoveTabuSize-->
+    </acceptor>
+    <forager>
+    </forager>
+    <selector>
+        <moveFactoryClass>org.drools.planner.examples.puzzle.PuzzleMoveFactory</moveFactoryClass>
+    </selector>
+    <startingSolutionInitializerClass>org.drools.planner.examples.puzzle.PuzzleSolutionInitializer</startingSolutionInitializerClass>
+</localSearchSolver>
