@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Puzzle {
 	public enum Direction { UP, RIGHT, DOWN, LEFT };
+	private final static int[][] hard1 = { {2,9,13,14}, {16,8,3,15}, {6,1,4,10}, {11,5,7,12} }; 
 	private int[][] p = new int[4][4];
 	
 	protected Puzzle() {
@@ -12,6 +13,10 @@ public class Puzzle {
 				p[x][y] = y * 4 + x + 1;
 			}
 		}
+	}
+
+	public void initHard1() {
+		p = hard1.clone();
 	}
 
 	@Override

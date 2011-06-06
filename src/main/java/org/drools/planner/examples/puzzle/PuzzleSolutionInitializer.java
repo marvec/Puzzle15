@@ -22,15 +22,15 @@ public class PuzzleSolutionInitializer implements StartingSolutionInitializer {
 		final LocalSearchSolverScope scope = (LocalSearchSolverScope) arg0;
 		final Puzzle p = new Puzzle();
 		final Random rnd = new Random();
-
-		int moves = SHUFFLE_COUNT;
+		p.initHard1();
+		/*int moves = SHUFFLE_COUNT;
 		while (moves > 0) {
 			Direction d = Direction.values()[rnd.nextInt(4)];
 			if (p.isMovable(d)) {
 				p.move(d);
 				moves--;
 			}
-		}
+		}*/
 		
 		log.info("Starting with puzzle " + p);
 		getCurrentSolution(scope).initialize(p, scope);
